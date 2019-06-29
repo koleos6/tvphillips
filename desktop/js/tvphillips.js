@@ -629,7 +629,7 @@ function addCmdToTable(_cmd) {
 		tr += '<td><span><input class="cmdAttr form-control input-sm " style="width:50px" data-l1key="configuration" data-l2key="order" /></span></td>';    
 		tr += '<td>';
 		if (is_numeric(_cmd.id)) {
-			tr += '<a class="btn btn-default btn-xs cmdAction" data-action="test"><i class="fa fa-rss"></i> {{Tester}}</a>';
+			tr += '<a class="btn btn-default btn-xs cmdAction" data-action="test"><i class="fas fa-rss"></i> {{Tester}}</a>';
 		}
 		tr += '</td>';
 		tr += '</tr>';
@@ -647,7 +647,7 @@ function addCmdToTable(_cmd) {
 		tr += '<td><span><input class="cmdAttr form-control input-sm " style="width:50px" data-l1key="configuration" data-l2key="order" /></span></td>';    
 		tr += '<td>';
 		if (is_numeric(_cmd.id)) {
-			tr += '<a class="btn btn-default btn-xs cmdAction" data-action="test"><i class="fa fa-rss"></i> {{Tester}}</a>';
+			tr += '<a class="btn btn-default btn-xs cmdAction" data-action="test"><i class="fas fa-rss"></i> {{Tester}}</a>';
 		}
 		tr += '</td>';
 		tr += '</tr>';
