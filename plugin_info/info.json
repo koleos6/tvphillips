@@ -1,0 +1,8 @@
+{
+"id" : "tvphillips",
+"name" : "Tv Phillips",
+"licence" : "AGPL",
+"author" : "Koleos",
+"require" : "3.x",
+"category" : "multimedia"
+}
