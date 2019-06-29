@@ -1,8 +1,15 @@
 {
-"id" : "tvphillips",
-"name" : "Tv Phillips",
-"licence" : "AGPL",
-"author" : "Koleos",
-"require" : "3.x",
-"category" : "multimedia"
+    "id" : "tvphillips",
+    "name" : "Tv Phillips",
+    "licence" : "AGPL",
+    "author" : "Koleos",
+    "require" : "3.x",
+    "category" : "multimedia",
+    "hasDependency" : false,
+	"hasOwnDeamon" : false,
+	"maxDependancyInstallTime" : 0,
+	"changelog" : "https://koleos6.github.io/tvphillips/#language#/changelog",
+	"documentation" : "https://koleos6.github.io/tvphillips/#language#/",
+	"language" : ["fr_FR"],
+	"compatibility" : ["miniplus","smart","rpi","docker","diy"]
 }
