@@ -1,0 +1,11 @@
+<center><span class="cmd" style="float:left; margin: 0 0 0 0; width: #width#;" data-type="action" data-subtype="other" data-cmd_id="#id#">
+	<input class="form-control input-sm wtvp_volume_son" placeholder="Chiffre entre 0 et 60" data-cmd_id="#id#" style="width:130px"/>
+	<a class='btn btn-success btn-xs execute cmdName'>Volume</a>
+	
+	<script>
+		$('.cmd[data-cmd_id=#id#] .execute').on('click', function() {
+			jeedom.cmd.execute({id: '#id#', value: {volume: $('.cmd[data-cmd_id=#id#] .wtvp_volume_son').value()}});
+		});
+	</script>
+</span>
+</center>
