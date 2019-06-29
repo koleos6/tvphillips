@@ -27,7 +27,15 @@
         "Ordre (<48)": "Ordre (<48)",
         "Télécommande 3 (xxPFL6687H mini)": "Télécommande 3 (xxPFL6687H mini)",
         "Ordre (<58)": "Ordre (<58)",
-        "Activation": "Activation"
+        "Activation": "Activation",
+        "Gestion": "Gestion",
+        "Ajouter": "Ajouter",
+        "Configuration": "Configuration",
+        "Configuration avancée": "Configuration avancée",
+        "Dupliquer": "Dupliquer",
+        "Equipement": "Equipement",
+        "Commandes": "Commandes",
+        "Addresse IP": "Addresse IP"
     },
     "plugins\/tvphillips\/plugin_info\/info.xml": {
         "Plugin pour commander les TVs Phillips connectées": "Plugin pour commander les TVs Phillips connectées",

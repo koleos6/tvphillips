@@ -38,11 +38,11 @@ class tvphillips extends eqLogic {
    
     public function toHtml($_version) 
 	{
+        $replace = $this->preToHtml($_version);
+		if (!is_array($replace)) {
+			return $replace;
+		}
 		$_version = jeedom::versionAlias($_version);
-        $mc = cache::byKey('tvphillipsWidget' . $_version . $this->getId());
-        if ($mc->getValue() != '') {
-            return $mc->getValue();
-        }
         
         $info = '';
         $action = '';
@@ -108,6 +108,8 @@ class tvphillips extends eqLogic {
 			$widget_son = "";
 		}
  */       
+    $replace['#action#'] = (isset($action)) ? $action : '';
+    /*
 		$replace = array(
             '#id#' => $this->getId(),
             '#name#' => ($this->getIsEnable()) ? $this->getName() : '<del>' . $this->getName() . '</del>',
@@ -117,16 +119,7 @@ class tvphillips extends eqLogic {
             '#background_color#' => $this->getBackgroundColor(jeedom::versionAlias($_version)),
 //			'#widget_son#' => $widget_son,
         );
-		
-        if ($_version == 'dview') {
-            $object = $this->getObject();
-            $replace['#name#'] = (is_object($object)) ? $object->getName() . ' - ' . $replace['#name#'] : $replace['#name#'];
-        }
-        if ($_version == 'mview') {
-            $object = $this->getObject();
-            $replace['#name#'] = (is_object($object)) ? $object->getName() . ' - ' . $replace['#name#'] : $replace['#name#'];
-        }
-
+		*/
         
         if (($_version == 'dashboard') && ($this->getConfiguration('widgettelecommande') !=  'name')) {
 			if ($this->getConfiguration('widgettelecommande') ==  'remote1')
@@ -139,10 +132,6 @@ class tvphillips extends eqLogic {
         else {
             return template_replace($replace, getTemplate('core', jeedom::versionAlias($_version), 'tvphillips_simple', 'tvphillips'));
         }
-        
-        
-        cache::set('tvphillipsWidget' . $_version . $this->getId(), $html, 0);
-        return $html;
 	}
      
     public function preUpdate() {
@@ -767,20 +756,14 @@ class tvphillips extends eqLogic {
 		$tvPhillipsCmd->save();
         
     }
-
+    
+    
 }
 
 class tvphillipsCmd extends cmd {
 
+    public function toHtml($_version = 'dashboard', $options='') {
 
-
-    public function preSave() {
-		if ($this->getConfiguration('key_data') == '') {
-            throw new Exception(__('La clé (key) ne peut pas être vide',__FILE__));
-        }
-    }
-    
-    public function toHtml($_version = 'dashboard', $options = '', $_cmdColor = null, $_cache = 2) {
         if ($this->getType() == 'info') {
             return parent::toHtml($_version, $options);
         }
@@ -806,6 +789,7 @@ class tvphillipsCmd extends cmd {
 		}
 		else 
 		{
+            
 			$replace = array(
 				'#id#' => $this->getId(),
 				'#name#' => $name_new,
@@ -822,6 +806,14 @@ class tvphillipsCmd extends cmd {
         return $html;
     }
 
+    
+
+    public function preSave() {
+		if ($this->getConfiguration('key_data') == '') {
+            throw new Exception(__('{{La clé (key) ne peut pas être vide}}',__FILE__));
+        }
+    }
+   
     public function execute($_options = null) {
 	
 		$eqLogic   = $this->getEqLogic();
